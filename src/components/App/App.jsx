@@ -1,15 +1,26 @@
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import ContactList from '../ContactList/ContactList'
 import './App.css'
 import ContactForm from '../ConactForm/ContactForm'
 import SearchBox from '../SearchBox/SearchBox'
 import initialContacts from '../contacts.json'
 
+
+const createInitialContacts = () => {
+  const localContacts = localStorage.getItem("contacts")
+  if (localContacts) {
+    return JSON.parse(localContacts)
+  }
+  return initialContacts
+}
+
 function App() {
 
-  const [contact, setContact] = useState(initialContacts);
+  const [contact, setContact] = useState(createInitialContacts);
   const [filter, setFilter] = useState('');
+
+ 
 
   const addContact = (newContact) => {
     setContact((prevContacts) => {
@@ -25,7 +36,11 @@ function App() {
     
   }
 
-  const filterContacts = contact.filter((item)=> item.name.toLowerCase().includes(filter.toLowerCase()))
+  const filterContacts = contact.filter((item) => item.name.toLowerCase().includes(filter.toLowerCase()));
+
+   useEffect(() => {
+    localStorage.setItem("contacts", JSON.stringify(filterContacts))
+  }, [filterContacts])
 
   return (
     <div>
