@@ -36,8 +36,8 @@ function App() {
   const filterContacts = contact.filter((item) => item.name.toLowerCase().includes(filter.toLowerCase()));
 
    useEffect(() => {
-    localStorage.setItem("contacts", JSON.stringify(filterContacts))
-  }, [filterContacts])
+    localStorage.setItem("contacts", JSON.stringify(contact))
+  }, [contact])
 
   return (
     <div>
