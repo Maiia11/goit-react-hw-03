@@ -1,5 +1,4 @@
 
-
 function SearchBox({value, onFilter}) {
   return (
     <div>
