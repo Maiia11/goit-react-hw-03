@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react'
 import ContactList from '../ContactList/ContactList'
 import './App.css'
-import ContactForm from '../ConactForm/ContactForm'
+import ContactForm from '../ContactForm/ContactForm'
 import SearchBox from '../SearchBox/SearchBox'
 import initialContacts from '../contacts.json'
 
@@ -16,11 +16,8 @@ const createInitialContacts = () => {
 }
 
 function App() {
-
   const [contact, setContact] = useState(createInitialContacts);
   const [filter, setFilter] = useState('');
-
- 
 
   const addContact = (newContact) => {
     setContact((prevContacts) => {

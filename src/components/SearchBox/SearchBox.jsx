@@ -1,8 +1,9 @@
+import css from './SearchBox.module.css'
 
 function SearchBox({value, onFilter}) {
   return (
-    <div>
-      <p>Find contacts by name</p>
+    <div className={css.container}>
+      <label htmlFor={value}>Find contacts by name</label>
       <input type="text" value={value} onChange={(e)=>onFilter(e.target.value)}/>
     </div>
   )
