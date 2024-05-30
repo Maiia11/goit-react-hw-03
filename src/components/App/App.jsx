@@ -44,7 +44,9 @@ function App() {
       <h1>Phonebook</h1>
       <ContactForm onAdd={addContact } />
       <SearchBox value={filter} onFilter={setFilter } />
-      <ContactList contact={filterContacts} onDelete={deleteContact } />
+      <ContactList contact={filterContacts} onDelete={deleteContact} />
+      
+      
 </div>
   )
 }
